@@ -1,0 +1,28 @@
+---
+title: "first-analysis "
+author: "AtinaSat"
+date: "2021-03-25"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+# To learn minfi package
+```{r}
+library(minfi)
+library(minfiData)
+
+baseDir <- system.file("extdata", package = "minfiData")
+list.files(baseDir)
+list.files(file.path(baseDir, "5723646052"))
+targets <- read.metharray.sheet(baseDir)
+targets
+
+sub(baseDir, "", targets$Basename)
+
+RGset <- read.metharray.exp(targets = targets)
+RGset
+
+```
+
